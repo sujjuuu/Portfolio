@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large files — host externally and link directly
+projects_work/CMP/Section\ 1.pdf
+public/images/projects/craftmyplate/craftmyplate-case-study.pdf
