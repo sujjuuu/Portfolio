@@ -26,7 +26,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [themeKey, setThemeKey] = useState<ThemeKey>(null);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   const setTheme = useCallback((key: ThemeKey) => {
     setThemeKey(key);
@@ -37,13 +37,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.style.setProperty("--theme-bright", c?.bright ?? "#2997ff");
   }, []);
 
-  // Restore dark preference from localStorage (or system preference) on mount
+  // Restore dark preference from localStorage; default to dark on first visit
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    } else if (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (saved === "light") {
+      setIsDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
       setIsDark(true);
       document.documentElement.classList.add("dark");
     }
