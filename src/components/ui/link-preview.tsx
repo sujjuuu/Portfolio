@@ -21,6 +21,7 @@ type LinkPreviewProps = {
   width?: number;
   height?: number;
   quality?: number;
+  noLink?: boolean;
 } & (
   | { isStatic: true; imageSrc: string }
   | { isStatic?: false; imageSrc?: never }
@@ -35,6 +36,7 @@ export const LinkPreview = ({
   quality = 50,
   isStatic = false,
   imageSrc = "",
+  noLink = false,
 }: LinkPreviewProps) => {
   let src: string;
   if (!isStatic) {
@@ -65,7 +67,7 @@ export const LinkPreview = ({
   const x = useMotionValue(0);
   const translateX = useSpring(x, springConfig);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     const targetRect = event.currentTarget.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
     const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2;
@@ -93,13 +95,22 @@ export const LinkPreview = ({
         onOpenChange={setOpen}
       >
         <HoverCardPrimitive.Trigger asChild>
-          <a
-            href={url}
-            onMouseMove={handleMouseMove}
-            className={cn("inline-block", className)}
-          >
-            {children}
-          </a>
+          {noLink ? (
+            <span
+              onMouseMove={handleMouseMove}
+              className={cn("inline-block", className)}
+            >
+              {children}
+            </span>
+          ) : (
+            <a
+              href={url}
+              onMouseMove={handleMouseMove}
+              className={cn("inline-block", className)}
+            >
+              {children}
+            </a>
+          )}
         </HoverCardPrimitive.Trigger>
 
         <HoverCardPrimitive.Content
@@ -126,28 +137,47 @@ export const LinkPreview = ({
                 className="shadow-xl rounded-xl"
                 style={{ x: translateX }}
               >
-                <Link
-                  href={url}
-                  className="group block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-[#d2d2d7]"
-                  style={{ fontSize: 0 }}
-                >
-                  <div className="relative rounded-lg overflow-hidden">
-                    <Image
-                      src={isStatic ? imageSrc : src}
-                      width={width}
-                      height={height}
-                      quality={quality}
-                      priority
-                      className="rounded-lg"
-                      alt="preview"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 rounded-lg flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
-                        <ArrowUpRight size={14} className="text-[#1d1d1f]" strokeWidth={2} />
-                      </div>
+                {noLink ? (
+                  <div
+                    className="block p-1 bg-white border-2 border-transparent shadow rounded-xl"
+                    style={{ fontSize: 0 }}
+                  >
+                    <div className="relative rounded-lg overflow-hidden">
+                      <Image
+                        src={isStatic ? imageSrc : src}
+                        width={width}
+                        height={height}
+                        quality={quality}
+                        priority
+                        className="rounded-lg"
+                        alt="preview"
+                      />
                     </div>
                   </div>
-                </Link>
+                ) : (
+                  <Link
+                    href={url}
+                    className="group block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-[#d2d2d7]"
+                    style={{ fontSize: 0 }}
+                  >
+                    <div className="relative rounded-lg overflow-hidden">
+                      <Image
+                        src={isStatic ? imageSrc : src}
+                        width={width}
+                        height={height}
+                        quality={quality}
+                        priority
+                        className="rounded-lg"
+                        alt="preview"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 rounded-lg flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
+                          <ArrowUpRight size={14} className="text-[#1d1d1f]" strokeWidth={2} />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                )}
               </motion.div>
             )}
           </AnimatePresence>

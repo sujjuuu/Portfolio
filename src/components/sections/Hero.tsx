@@ -41,6 +41,7 @@ export function HeroSection() {
           imageSrc="/images/experiences.png"
           width={200}
           height={125}
+          noLink
           className="[color:var(--link-default)] cursor-default"
         >
           want to use
@@ -52,6 +53,7 @@ export function HeroSection() {
           imageSrc="/images/want-to-use.jpg"
           width={200}
           height={125}
+          noLink
           className="[color:var(--link-default)] cursor-default"
         >
           experiences
