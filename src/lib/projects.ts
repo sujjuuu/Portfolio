@@ -144,7 +144,7 @@ export const projects: Project[] = [
     ],
     appHref: "https://play.google.com/store/apps/details?id=com.app.craft_my_plate_client&hl=en_IN",
     caseStudyDownload: {
-      href: "/images/projects/craftmyplate/craftmyplate-case-study.pdf",
+      href: "/images/projects/craftmyplate/CraftMyPlate Case Study.pdf",
       filename: "CraftMyPlate Case Study.pdf",
     },
     accentColor: "#1e3a2f",
