@@ -8,10 +8,10 @@ import MacOSDock from "@/components/ui/mac-os-dock";
 const toolApps = [
   { id: "figma",      name: "Figma",      icon: "/images/tools/figma-logo.png" },
   { id: "framer",     name: "Framer",     icon: "/images/tools/framer1.png" },
-  { id: "chatgpt",    name: "ChatGPT",    icon: "/images/tools/ChatGPT.png" },
-  { id: "claude",     name: "Claude",     icon: "/images/tools/Claude.png" },
-  { id: "gemini",     name: "Gemini",     icon: "/images/tools/Gemini.png" },
-  { id: "notion",     name: "Notion",     icon: "/images/tools/Notion.png" },
+  { id: "chatgpt",    name: "ChatGPT",    icon: "/images/tools/chatgpt.png" },
+  { id: "claude",     name: "Claude",     icon: "/images/tools/claude.png" },
+  { id: "gemini",     name: "Gemini",     icon: "/images/tools/gemini.png" },
+  { id: "notion",     name: "Notion",     icon: "/images/tools/notion.png" },
   { id: "perplexity", name: "Perplexity", icon: "/images/tools/Perplexity.png" },
   { id: "gum",        name: "Gum",        icon: "/images/tools/Gum.png" },
 ];
