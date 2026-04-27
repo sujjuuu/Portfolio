@@ -124,7 +124,7 @@ export const projects: Project[] = [
     ],
     shoutouts: [
       "A huge thank you to everyone involved in bringing this to life. From shaping the vision to executing across multiple touchpoints, this was a true team effort.",
-      "Special thanks to **Madhusudhan R**, **Akash M R**, **Uday**, **Uday Kiran Karanam** (Design Lead), **Alolika Ray**, **Aastha**, and **Aastha Yagnik** all fellow product designers for their collaboration, support, and contributions throughout the process.",
+      "Special thanks to **Madhusudhan R**, **Akash M R**, **Uday Kiran Karanam** (Design Lead), **Alolika Ray**, **Aastha**, and **Aastha Yagnik** for their collaboration, support, and contributions throughout the process.",
     ],
     images: [
       "/images/projects/craftmyplate/cmp1.png",
@@ -197,7 +197,7 @@ export const projects: Project[] = [
     ],
     shoutouts: [
       "A huge thank you to everyone involved in bringing this to life. From shaping the vision to executing across multiple touchpoints, this was a true team effort.",
-      "Special thanks to **Madhusudhan R**, **Akash M R**, **Uday**, **Uday Kiran Karanam** (Design Lead), **Alolika Ray**, **Aastha**, and **Aastha Yagnik** all fellow product designers for their collaboration, support, and contributions throughout the process.",
+      "Special thanks to **Madhusudhan R**, **Akash M R**, **Uday Kiran Karanam** (Design Lead), **Alolika Ray**, **Aastha**, and **Aastha Yagnik** for their collaboration, support, and contributions throughout the process.",
     ],
     images: [
       "/images/projects/wish/w1.png",
